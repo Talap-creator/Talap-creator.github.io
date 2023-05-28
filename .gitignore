@@ -1,0 +1,12 @@
+.DS_Store
+*.pyc
+*.egg-info
+*.swp
+tags
+lms/docs/current
+lms/public/dist
+__pycache__/
+*.py[cod]
+*$py.class
+node_modules
+package-lock.json

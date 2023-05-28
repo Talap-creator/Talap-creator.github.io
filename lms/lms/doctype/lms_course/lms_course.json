@@ -1,0 +1,303 @@
+{
+ "actions": [
+  {
+   "action": "lms.lms.doctype.lms_course.lms_course.reindex_exercises",
+   "action_type": "Server Action",
+   "group": "Reindex",
+   "label": "Reindex Exercises"
+  }
+ ],
+ "allow_import": 1,
+ "allow_rename": 1,
+ "creation": "2022-02-22 15:28:26.091549",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "title",
+  "video_link",
+  "image",
+  "column_break_3",
+  "instructors",
+  "tags",
+  "status",
+  "section_break_7",
+  "published",
+  "column_break_10",
+  "upcoming",
+  "column_break_12",
+  "disable_self_learning",
+  "section_break_18",
+  "short_introduction",
+  "description",
+  "chapters",
+  "related_courses",
+  "certification_section",
+  "enable_certification",
+  "expiry",
+  "section_break_23",
+  "grant_certificate_after",
+  "evaluator",
+  "column_break_26",
+  "max_attempts",
+  "duration",
+  "pricing_section",
+  "paid_certificate",
+  "currency",
+  "price_certificate"
+ ],
+ "fields": [
+  {
+   "fieldname": "title",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Title",
+   "reqd": 1,
+   "width": "200"
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Text Editor",
+   "label": "Description",
+   "reqd": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "published",
+   "fieldtype": "Check",
+   "label": "Published"
+  },
+  {
+   "fieldname": "column_break_3",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "video_link",
+   "fieldtype": "Data",
+   "label": "Video Embed Link"
+  },
+  {
+   "fieldname": "short_introduction",
+   "fieldtype": "Small Text",
+   "label": "Short Introduction",
+   "reqd": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "disable_self_learning",
+   "fieldtype": "Check",
+   "label": "Disable Self Learning"
+  },
+  {
+   "fieldname": "image",
+   "fieldtype": "Attach Image",
+   "label": "Preview Image"
+  },
+  {
+   "fieldname": "tags",
+   "fieldtype": "Data",
+   "label": "Tags"
+  },
+  {
+   "default": "0",
+   "fieldname": "upcoming",
+   "fieldtype": "Check",
+   "label": "Upcoming"
+  },
+  {
+   "fieldname": "chapters",
+   "fieldtype": "Table",
+   "label": "Chapters",
+   "options": "Chapter Reference"
+  },
+  {
+   "fieldname": "instructors",
+   "fieldtype": "Table MultiSelect",
+   "in_standard_filter": 1,
+   "label": "Instructors",
+   "max_height": "50px",
+   "options": "Course Instructor"
+  },
+  {
+   "fieldname": "section_break_7",
+   "fieldtype": "Section Break",
+   "label": "Course Settings"
+  },
+  {
+   "fieldname": "certification_section",
+   "fieldtype": "Section Break",
+   "label": "Certification"
+  },
+  {
+   "default": "0",
+   "fieldname": "enable_certification",
+   "fieldtype": "Check",
+   "label": "Enable Certification"
+  },
+  {
+   "default": "0",
+   "depends_on": "enable_certification",
+   "fieldname": "expiry",
+   "fieldtype": "Int",
+   "label": "Certification Expires After (Years)"
+  },
+  {
+   "fieldname": "related_courses",
+   "fieldtype": "Table",
+   "label": "Related Courses",
+   "options": "Related Courses"
+  },
+  {
+   "default": "In Progress",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "hidden": 1,
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Status",
+   "options": "In Progress\nUnder Review\nApproved",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_break_18",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "column_break_10",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_12",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "depends_on": "enable_certification",
+   "fieldname": "paid_certificate",
+   "fieldtype": "Check",
+   "label": "Paid Certificate"
+  },
+  {
+   "depends_on": "enable_certification",
+   "fieldname": "grant_certificate_after",
+   "fieldtype": "Select",
+   "label": "Grant Certificate After",
+   "options": "Completion\nEvaluation"
+  },
+  {
+   "depends_on": "eval: doc.grant_certificate_after == \"Evaluation\"",
+   "fieldname": "evaluator",
+   "fieldtype": "Link",
+   "label": "Evaluator",
+   "mandatory_depends_on": "eval: doc.grant_certificate_after == \"Evaluation\"",
+   "options": "Course Evaluator"
+  },
+  {
+   "depends_on": "eval: doc.grant_certificate_after == \"Evaluation\"",
+   "fieldname": "pricing_section",
+   "fieldtype": "Section Break",
+   "label": "Pricing"
+  },
+  {
+   "depends_on": "paid_certificate",
+   "fieldname": "price_certificate",
+   "fieldtype": "Currency",
+   "label": "Certificate Price",
+   "mandatory_depends_on": "paid_certificate"
+  },
+  {
+   "depends_on": "paid_certificate",
+   "fieldname": "currency",
+   "fieldtype": "Link",
+   "label": "Currency",
+   "mandatory_depends_on": "paid_certificate",
+   "options": "Currency"
+  },
+  {
+   "default": "1",
+   "depends_on": "eval: doc.grant_certificate_after == \"Evaluation\"",
+   "fieldname": "max_attempts",
+   "fieldtype": "Int",
+   "label": "Max Attempts for Evaluations"
+  },
+  {
+   "depends_on": "eval: doc.grant_certificate_after == \"Evaluation\"",
+   "fieldname": "duration",
+   "fieldtype": "Select",
+   "label": "Duration for Attempts",
+   "options": "1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12"
+  },
+  {
+   "fieldname": "section_break_23",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "column_break_26",
+   "fieldtype": "Column Break"
+  }
+ ],
+ "is_published_field": "published",
+ "links": [
+  {
+   "group": "Chapters",
+   "link_doctype": "Course Chapter",
+   "link_fieldname": "course"
+  },
+  {
+   "group": "Batches",
+   "link_doctype": "LMS Batch",
+   "link_fieldname": "course"
+  },
+  {
+   "group": "Mentors",
+   "link_doctype": "LMS Course Mentor Mapping",
+   "link_fieldname": "course"
+  },
+  {
+   "group": "Interests",
+   "link_doctype": "LMS Course Interest",
+   "link_fieldname": "course"
+  }
+ ],
+ "make_attachments_public": 1,
+ "modified": "2023-05-11 17:08:19.763405",
+ "modified_by": "Administrator",
+ "module": "LMS",
+ "name": "LMS Course",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "select": 1,
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "if_owner": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "All",
+   "select": 1,
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "search_fields": "title",
+ "show_title_field_in_link": 1,
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "title",
+ "track_changes": 1
+}

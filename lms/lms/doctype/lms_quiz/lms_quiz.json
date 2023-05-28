@@ -1,0 +1,97 @@
+{
+ "actions": [],
+ "allow_import": 1,
+ "allow_rename": 1,
+ "creation": "2021-06-07 10:50:17.893625",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "title",
+  "questions",
+  "section_break_3",
+  "max_attempts",
+  "time",
+  "column_break_5",
+  "lesson",
+  "course"
+ ],
+ "fields": [
+  {
+   "fieldname": "title",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Title",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "questions",
+   "fieldtype": "Table",
+   "label": "Questions",
+   "options": "LMS Quiz Question"
+  },
+  {
+   "fieldname": "lesson",
+   "fieldtype": "Link",
+   "label": "Lesson",
+   "options": "Course Lesson",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "max_attempts",
+   "fieldtype": "Int",
+   "label": "Max Attempts"
+  },
+  {
+   "default": "0",
+   "fieldname": "time",
+   "fieldtype": "Int",
+   "label": "Time Per Question (in Seconds)"
+  },
+  {
+   "fetch_from": "lesson.course",
+   "fieldname": "course",
+   "fieldtype": "Link",
+   "label": "Course",
+   "options": "LMS Course",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_5",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_3",
+   "fieldtype": "Section Break"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2022-11-15 15:36:39.585488",
+ "modified_by": "Administrator",
+ "module": "LMS",
+ "name": "LMS Quiz",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "show_title_field_in_link": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "title",
+ "track_changes": 1
+}

@@ -1,0 +1,97 @@
+{
+ "actions": [],
+ "creation": "2021-06-07 14:19:54.958989",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "quiz",
+  "score",
+  "course",
+  "column_break_3",
+  "member",
+  "member_name",
+  "section_break_6",
+  "result"
+ ],
+ "fields": [
+  {
+   "fieldname": "quiz",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Quiz",
+   "options": "LMS Quiz"
+  },
+  {
+   "fieldname": "result",
+   "fieldtype": "Table",
+   "label": "Result",
+   "options": "LMS Quiz Result"
+  },
+  {
+   "fieldname": "score",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Score"
+  },
+  {
+   "fieldname": "member",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Member",
+   "options": "User"
+  },
+  {
+   "fetch_from": "member.full_name",
+   "fieldname": "member_name",
+   "fieldtype": "Data",
+   "label": "Member Name",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_3",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_6",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fetch_from": "quiz.course",
+   "fieldname": "course",
+   "fieldtype": "Link",
+   "label": "Course",
+   "options": "LMS Course",
+   "read_only": 1
+  }
+ ],
+ "in_create": 1,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2022-11-15 15:27:07.770945",
+ "modified_by": "Administrator",
+ "module": "LMS",
+ "name": "LMS Quiz Submission",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "member_name",
+ "track_changes": 1
+}
